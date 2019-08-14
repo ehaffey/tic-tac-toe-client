@@ -71,6 +71,19 @@ const signOutFailure = function () {
   console.error('signOutFailure ran')
 }
 
+const onGameUpdate = function (clickTile) {
+  store.game.cells[clickTile] = store.currentPlayer
+}
+
+const winner = function () {
+  $('#game-info').text('Player ' + store.currentPlayer + 'wins!')
+  for (let i = 0; i < 9; i++) {
+    if (store.game.cells[i] === '') {
+      store.game.cells[i] = ' '
+    }
+  }
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -81,5 +94,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  onGameUpdate,
+  winner
 }
