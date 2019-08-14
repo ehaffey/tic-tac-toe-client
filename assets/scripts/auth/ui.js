@@ -45,8 +45,10 @@ const changePasswordFailure = function () {
 
 const newGameSuccess = function (data) {
   store.game = data.game
+  store.currentPlayer = 'x'
   $('#message').text('New game started')
   $('#message').attr('class', 'success')
+  $('#game-info').text('Next move: X')
   console.log('newGameSuccess ran')
 }
 const newGameFailure = function (data) {
