@@ -19,8 +19,8 @@ const signInSuccess = function (data) {
 
   $('#message').text('Signed in successfully')
   $('#message').attr('class', 'success')
-  $('.auth').css('display', 'initial')
-  $('.pre-auth').css('display', 'none')
+  $('#auth').css('display', 'initial')
+  $('#pre-auth').css('display', 'none')
   //  $('#sign-up').reset()
   console.log('signInSuccess ran')
 }
@@ -43,11 +43,23 @@ const changePasswordFailure = function () {
   console.error('changePasswordFailure ran')
 }
 
+const newGameSuccess = function (data) {
+  store.game = data.game
+  $('#message').text('New game started')
+  $('#message').attr('class', 'success')
+  console.log('newGameSuccess ran')
+}
+const newGameFailure = function (data) {
+  $('#message').text('Unable to start new game')
+  $('#message').attr('class', 'failure')
+  console.log('newGameFailure ran')
+}
+
 const signOutSuccess = function (data) {
   $('#message').text('Sign off complete')
   $('#message').attr('class', 'success')
-  $('.auth').css('display', 'none')
-  $('.pre-auth').css('display', 'initial')
+  $('#auth').css('display', 'none')
+  $('#pre-auth').css('display', 'initial')
   console.log('signOutSuccess ran')
 }
 
@@ -64,6 +76,8 @@ module.exports = {
   signInFailure,
   changePasswordSuccess,
   changePasswordFailure,
+  newGameSuccess,
+  newGameFailure,
   signOutSuccess,
   signOutFailure
 }

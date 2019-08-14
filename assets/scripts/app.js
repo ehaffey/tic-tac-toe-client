@@ -11,6 +11,7 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#new-game').on('submit', authEvents.onNewGame)
   $('#sign-out').on('submit', authEvents.onSignOut)
   // your JS code goes here
 })
