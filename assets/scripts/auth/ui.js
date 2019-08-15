@@ -45,7 +45,11 @@ const changePasswordFailure = function () {
 
 const newGameSuccess = function (data) {
   store.game = data.game
-  store.currentPlayer = 'x'
+  store.currentPlayer = 'X'
+  store.winner = false
+  store.draw = false
+  store.gameLength = 1
+  $('.tile').text('')
   $('#message').text('New game started')
   $('#message').attr('class', 'success')
   $('#game-info').text('Next move: X')
@@ -84,6 +88,14 @@ const winner = function () {
   }
 }
 
+const draw = function () {
+  $('#game-info').text('Draw! No one wins!')
+}
+
+const badTile = function () {
+  $('#game-info').text('That tile is taken, please pick a new tile Player ' + store.currentPlayer)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -96,5 +108,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   onGameUpdate,
-  winner
+  winner,
+  draw,
+  badTile
 }

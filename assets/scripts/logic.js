@@ -6,18 +6,34 @@ const store = require('./store')
 const api = require('./auth/api.js')
 const ui = require('./auth/ui.js')
 
-const checkForEnd = function () {
-  console.log('checkforend ran ' + store.game.cells)
-  const board = store.game.cells
-  if (board[0] === board[1] && board[1] === board[2]) {
+const checkForWinner = function (pos1, pos2, pos3) {
+  if (pos1 === pos2 && pos2 === pos3 && (pos1 + pos2 + pos3).length === 3) {
     ui.winner()
-    return
+    store.winner = true
   }
-  if (store.currentPlayer === 'x') {
-    store.currentPlayer = 'o'
+}
+
+const checkBoard = function () {
+  console.log('checkBoard ran ' + store.game.cells + store.gameLength)
+  const board = store.game.cells
+  checkForWinner(board[0], board[1], board[2])
+  checkForWinner(board[3], board[4], board[5])
+  checkForWinner(board[6], board[7], board[8])
+  checkForWinner(board[0], board[3], board[6])
+  checkForWinner(board[1], board[4], board[7])
+  checkForWinner(board[2], board[5], board[8])
+  checkForWinner(board[0], board[4], board[8])
+  checkForWinner(board[2], board[4], board[6])
+  if (store.gameLength === 9) {
+    store.draw = true
+    ui.draw()
+  }
+
+  if (store.currentPlayer === 'X' && store.winner === false && store.draw === false) {
+    store.currentPlayer = 'O'
     $('#game-info').text('Next move: O')
-  } else {
-    store.currentPlayer = 'x'
+  } else if (store.winner === false && store.draw === false) {
+    store.currentPlayer = 'O'
     $('#game-info').text('Next move: X')
   }
 }
@@ -27,6 +43,7 @@ const buttonClick = function (event) {
   const clickTile = this.dataset.tile
   // check if tile has been used. If used no action taken
   if (store.game.cells[clickTile]) {
+    ui.badTile()
     return
   }
   // If tile unused then update board, update current player
@@ -44,7 +61,8 @@ const buttonClick = function (event) {
   }
   api.updateGame(updateObject)
   ui.onGameUpdate(clickTile)
-  checkForEnd()
+  checkBoard()
+  store.gameLength++
 }
 
 module.exports = {
