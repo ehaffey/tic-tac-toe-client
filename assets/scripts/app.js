@@ -1,10 +1,4 @@
 'use strict'
-
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
 const authEvents = require('./auth/events')
 const gameLogic = require('./logic')
 
@@ -15,5 +9,5 @@ $(() => {
   $('#new-game').on('submit', authEvents.onNewGame)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('.tile').on('click', gameLogic.buttonClick)
-  // your JS code goes here
+  $('#player-stat').on('submit', authEvents.onPlayerStat)
 })

@@ -10,11 +10,12 @@ const checkForWinner = function (pos1, pos2, pos3) {
   if (pos1 === pos2 && pos2 === pos3 && (pos1 + pos2 + pos3).length === 3) {
     ui.winner()
     store.winner = true
+    store.over = true
   }
 }
 
 const checkBoard = function () {
-  console.log('checkBoard ran ' + store.game.cells + store.gameLength)
+  // console.log('checkBoard ran ' + store.game.cells + store.gameLength)
   const board = store.game.cells
   checkForWinner(board[0], board[1], board[2])
   checkForWinner(board[3], board[4], board[5])
@@ -26,6 +27,7 @@ const checkBoard = function () {
   checkForWinner(board[2], board[4], board[6])
   if (store.gameLength === 9) {
     store.draw = true
+    store.over = true
     ui.draw()
   }
 
@@ -33,7 +35,7 @@ const checkBoard = function () {
     store.currentPlayer = 'O'
     $('#game-info').text('Next move: O')
   } else if (store.winner === false && store.draw === false) {
-    store.currentPlayer = 'O'
+    store.currentPlayer = 'X'
     $('#game-info').text('Next move: X')
   }
 }
@@ -48,20 +50,18 @@ const buttonClick = function (event) {
   }
   // If tile unused then update board, update current player
   // indicator, update API and store, and check for winner
-  $('#' + clickTile).text(store.currentPlayer)
+  ui.onGameUpdate(clickTile)
+  checkBoard()
   const updateObject = {
     game: {
       cell: {
         index: clickTile,
         value: store.currentplayer
       },
-      // need to add game over logic
-      over: false
+      over: store.over
     }
   }
   api.updateGame(updateObject)
-  ui.onGameUpdate(clickTile)
-  checkBoard()
   store.gameLength++
 }
 

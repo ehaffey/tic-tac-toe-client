@@ -18,9 +18,9 @@
     <form id="sign-up" class="border">
       <fieldset>
         <legend>Sign up!</legend>
-       <input type="text" name="credentials[email]" placeholder="Email">
-       <input type="password" name="credentials[password]" placeholder="Password">
-       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+       <input class="text-field" type="text" name="credentials[email]" placeholder="Email">
+       <input class="text-field" type="password" name="credentials[password]" placeholder="Password">
+       <input class="text-field" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
        <input type="submit" value="Sign up">
       </fieldset>
     </form>
@@ -28,8 +28,8 @@
     <form id="sign-in" class="border">
       <fieldset>
         <legend>Sign in!</legend>
-       <input type="text" name="credentials[email]" placeholder="Email">
-       <input type="password" name="credentials[password]" placeholder="Password">
+       <input class="text-field" type="text" name="credentials[email]" placeholder="Email">
+       <input class="text-field" type="password" name="credentials[password]" placeholder="Password">
        <input type="submit" value="Sign in">
       </fieldset>
     </form>
@@ -40,8 +40,8 @@
     <form id="change-password" class="border">
       <fieldset>
         <legend>Change password</legend>
-       <input type="password" name="passwords[old]" placeholder="Current Password">
-       <input type="password" name="passwords[new]" placeholder="New Password">
+       <input type="password" class="text-field" name="passwords[old]" placeholder="Current Password">
+       <input type="password" name="passwords[new]" class="text-field" placeholder="New Password">
        <input type="submit" value="Change Password">
       </fieldset>
     </form>
@@ -66,6 +66,12 @@
       <div id="8" data-tile="8" class="col-4 alt-box tile"></div>
     </div>
   </div>
+  <form id="player-stat" class="border">
+    <fieldset>
+      <legend>Games Played</legend>
+      <input type="submit" value="Games Played">
+    </fieldset>
+  </form>
     <form id="sign-out" class="border">
       <fieldset>
         <legend>Logout</legend>

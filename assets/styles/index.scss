@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 
 $body-bg-color: $gray-200;
 $font-color: $light;
@@ -9,25 +10,29 @@ body {
 
 .container {
   width: 550px;
+  border: 1px solid $black;
 }
 
 .box {
   align-items: center;
   background-color: #a384e8;
-  border: 1px solid $white;
+  border: 1px solid $black;
   color: $font-color;
   display: flex;
   justify-content: center;
   height: 183px;
-  font-size: 70px;
+  font-size: 80px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .alt-box {
   background-color: #7ec5ff;
+  border: 1px solid $black;
   align-items: center;
   display: flex;
   justify-content: center;
-  font-size: 70px;
+  font-size: 80px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .border {
@@ -39,7 +44,7 @@ body {
 #game-info {
   align-items: center;
   background-color: #3b5cb8;
-  border: 1px solid $white;
+  border: 1px solid $black;
   color: $font-color;
   display: flex;
   justify-content: center;
@@ -53,5 +58,5 @@ body {
 }
 
 #auth {
-  display: initial;
+  display: none;
 }
