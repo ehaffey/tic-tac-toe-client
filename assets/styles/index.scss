@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  width: 550px;
+  width: 500px;
   border: 1px solid $black;
 }
 
@@ -20,8 +20,8 @@ body {
   color: $font-color;
   display: flex;
   justify-content: center;
-  height: 183px;
-  font-size: 80px;
+  height: 166px;
+  font-size: 75px;
   font-family: 'Permanent Marker', cursive;
 }
 
@@ -39,6 +39,14 @@ body {
   border: 3px solid $black;
   margin: 20px;
   padding: 20px;
+}
+
+.success {
+  border: 3px solid green;
+}
+
+.failure {
+  border: 3px solid red;
 }
 
 #game-info {

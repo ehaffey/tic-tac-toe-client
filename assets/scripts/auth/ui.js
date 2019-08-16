@@ -1,9 +1,11 @@
 'use strict'
 const store = require('./../store')
 
-const signUpSuccess = function () {
-  $('#message').text('Signed up successfully')
+const signUpSuccess = function (data) {
+  $('#message').text('Registered and signed in successfully')
   $('#message').attr('class', 'success')
+  $('#auth').css('display', 'initial')
+  $('#pre-auth').css('display', 'none')
   $('.text-field').val('')
   //  $('#sign-up').reset()
   // console.log('signUpSuccess ran')
@@ -12,6 +14,7 @@ const signUpSuccess = function () {
 const signUpFailure = function () {
   $('#message').text('Sign up failed')
   $('#message').attr('class', 'failure')
+  $('.text-field').val('')
   // console.error('signUpFailure ran')
 }
 
@@ -29,6 +32,7 @@ const signInSuccess = function (data) {
 const signInFailure = function () {
   $('#message').text('Sign in failed')
   $('#message').attr('class', 'failure')
+  $('.text-field').val('')
   // console.error('signInFailure ran')
 }
 
@@ -40,8 +44,9 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function () {
-  $('#message').text('Password couldn\'t be updated')
+  $('#message').text('Password couldn\'t be updated. Please try again.')
   $('#message').attr('class', 'failure')
+  $('.text-field').val('')
   // console.error('changePasswordFailure ran')
 }
 
@@ -61,7 +66,11 @@ const newGameSuccess = function (data) {
 
 const playerStatSuccess = function (data) {
   store.games = data.games
-  $('#game-info').text('You have played ' + store.games.length + ' games.')
+  if (store.games.length === 1) {
+    $('#game-info').text('You have played 1 game.')
+  } else {
+    $('#game-info').text('You have played ' + store.games.length + ' games.')
+  }
   // console.log('playerStatSuccess ran')
   // console.log(store.games.length)
 }
@@ -83,6 +92,8 @@ const signOutSuccess = function (data) {
   $('#message').attr('class', 'success')
   $('#auth').css('display', 'none')
   $('#pre-auth').css('display', 'initial')
+  $('.tile').text('')
+  $('#game-info').text('Click new game to start')
   // console.log('signOutSuccess ran')
 }
 
