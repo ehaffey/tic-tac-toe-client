@@ -2,6 +2,7 @@
 const store = require('./../store')
 
 const signUpSuccess = function (data) {
+  store.user = data.user
   $('#message').text('Registered and signed in successfully')
   $('#message').attr('class', 'success')
   $('#auth').css('display', 'initial')
