@@ -8,9 +8,9 @@ const ui = require('./auth/ui.js')
 
 const checkForWinner = function (pos1, pos2, pos3) {
   if (pos1 === pos2 && pos2 === pos3 && (pos1 + pos2 + pos3).length === 3) {
-    ui.winner()
     store.winner = true
     store.over = true
+    ui.winner()
   }
 }
 
@@ -25,7 +25,7 @@ const checkBoard = function () {
   checkForWinner(board[2], board[5], board[8])
   checkForWinner(board[0], board[4], board[8])
   checkForWinner(board[2], board[4], board[6])
-  if (store.gameLength === 9) {
+  if (store.gameLength === 9 && store.winner === false) {
     store.draw = true
     store.over = true
     ui.draw()
