@@ -10,7 +10,9 @@ body {
 
 .container {
   width: 500px;
-  border: 1px solid $black;
+  border: 2px solid $black;
+  margin-top: 25px;
+  margin-bottom: 100px;
 }
 
 .box {
@@ -20,7 +22,7 @@ body {
   color: $font-color;
   display: flex;
   justify-content: center;
-  height: 166px;
+  height: 133px;
   font-size: 75px;
   font-family: 'Permanent Marker', cursive;
 }
@@ -33,6 +35,29 @@ body {
   justify-content: center;
   font-size: 80px;
   font-family: 'Permanent Marker', cursive;
+}
+
+.box:hover {
+  background-color: #88ebc0;
+}
+
+.alt-box:hover {
+  background-color: #88ebc0;
+}
+
+.button {
+  align-items: center;
+  background-color: #8cffaa;
+  border: 1px solid $black;
+  color: $black;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  font-size: 20px;
+}
+
+.button:hover {
+  background-color: #41eb4c;
 }
 
 .border {
@@ -49,6 +74,12 @@ body {
   border: 3px solid red;
 }
 
+.blocker {
+  background-color: #3b5cb8;
+  border: 1px solid $black;
+  height: 10px;
+}
+
 #game-info {
   align-items: center;
   background-color: #3b5cb8;
@@ -58,7 +89,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 50px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #pre-auth {

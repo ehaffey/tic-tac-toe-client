@@ -37,23 +37,8 @@
   </div>
     <div id="auth">
       <div id="currentplayer"></div>
-    <form id="change-password" class="border">
-      <fieldset>
-        <legend>Change password</legend>
-       <input type="password" class="text-field" name="passwords[old]" placeholder="Current Password">
-       <input type="password" name="passwords[new]" class="text-field" placeholder="New Password">
-       <input type="submit" value="Change Password">
-      </fieldset>
-    </form>
-    <br>
-    <form id="new-game" class="border">
-      <fieldset>
-        <legend>New Game</legend>
-        <input type="submit" value="New Game">
-      </fieldset>
-    </form>
     <div class="container">
-    <div class="row">
+     <div class="row">
       <div id="game-info" class="col-12">Click new game to start</div>
       <div id="0" data-tile="0" class="col-4 alt-box tile"></div>
       <div id="1" data-tile="1" class="col-4 box tile"></div>
@@ -64,18 +49,18 @@
       <div id="6" data-tile="6" class="col-4 alt-box tile"></div>
       <div id="7" data-tile="7" class="col-4 box tile"></div>
       <div id="8" data-tile="8" class="col-4 alt-box tile"></div>
+      <div class="col-12 blocker"></div>
+      <div id="player-stat" class="col-4 button">Games Played</div>
+      <div id="new-game" class="col-4 button">New Game</div>
+      <div id="sign-out" class="col-4 button">Logout</div>
+     </div>
     </div>
-  </div>
-  <form id="player-stat" class="border">
-    <fieldset>
-      <legend>Games Played</legend>
-      <input type="submit" value="Games Played">
-    </fieldset>
-  </form>
-    <form id="sign-out" class="border">
+    <form id="change-password" class="border">
       <fieldset>
-        <legend>Logout</legend>
-        <input type="submit" value="Logout">
+        <legend>Change password</legend>
+       <input type="password" class="text-field" name="passwords[old]" placeholder="Current Password">
+       <input type="password" name="passwords[new]" class="text-field" placeholder="New Password">
+       <input type="submit" value="Change Password">
       </fieldset>
     </form>
     </body>

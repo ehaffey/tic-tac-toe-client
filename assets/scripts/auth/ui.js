@@ -126,7 +126,7 @@ const badTile = function () {
     $('#game-info').text('The game is over. Please start a new game')
     return
   }
-  $('#game-info').text('That tile is taken, please pick a new tile Player ' + store.currentPlayer)
+  $('#game-info').text('Player ' + store.currentPlayer + ', please don\'t do that')
 }
 
 module.exports = {
