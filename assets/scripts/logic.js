@@ -43,8 +43,8 @@ const checkBoard = function () {
 const buttonClick = function (event) {
   // first set a new variable with the clicked square
   const clickTile = this.dataset.tile
-  // check if tile has been used. If used no action taken
-  if (store.game.cells[clickTile]) {
+  // check if tile has been used or if game isn't active.
+  if (store.over === true || store.game.cells[clickTile]) {
     ui.badTile()
     return
   }

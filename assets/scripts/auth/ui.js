@@ -1,8 +1,11 @@
 'use strict'
 const store = require('./../store')
 
+store.inferno = false
+
 const signUpSuccess = function (data) {
   store.user = data.user
+  store.over = true
   $('#message').text('Registered and signed in successfully')
   $('#message').attr('class', 'success')
   $('#auth').css('display', 'initial')
@@ -22,12 +25,12 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#message').text('Signed in successfully')
+  store.over = true
+  $('#message').text('Signed in successfully, games are being logged')
   $('#message').attr('class', 'success')
   $('#auth').css('display', 'initial')
   $('#pre-auth').css('display', 'none')
   $('.text-field').val('')
-  setTimeout(function () { $('#message').text('Status: Signed in, games are being logged') }, 7500)
   //  $('#sign-up').reset()
   // console.log('signInSuccess ran')
 }
@@ -40,10 +43,9 @@ const signInFailure = function () {
 }
 
 const changePasswordSuccess = function (data) {
-  $('#message').text('Password updated')
+  $('#game-info').text('Password updated')
   $('#message').attr('class', 'success')
   $('.text-field').val('')
-  setTimeout(function () { $('#message').text('Status: Signed in, games are being logged') }, 7500)
   // console.log('changePaswordSuccess ran')
 }
 
@@ -62,7 +64,8 @@ const newGameSuccess = function (data) {
   store.gameLength = 1
   store.over = false
   $('.tile').text('')
-//  $('.container').classList.add('animated', 'bounceOutLeft')
+  $('#board').css('display', 'initial')
+  //  $('.container').classList.add('animated', 'bounceOutLeft')
   $('#message').attr('class', 'success')
   $('#game-info').text('New game started, Next move: X')
   // console.log('newGameSuccess ran')
@@ -92,6 +95,7 @@ const newGameFailure = function (data) {
 }
 
 const signOutSuccess = function (data) {
+  clearTimeout(setTimeout)
   $('#message').text('Sign off complete')
   $('#message').attr('class', 'success')
   $('#auth').css('display', 'none')
@@ -127,10 +131,10 @@ const draw = function () {
 
 const badTile = function () {
   if (store.over) {
-    $('#game-info').text('The game is over. Please start a new game')
-    return
+    $('#game-info').text('Please start a new game')
+  } else {
+    $('#game-info').text('Player ' + store.currentPlayer + ', please don\'t do that')
   }
-  $('#game-info').text('Player ' + store.currentPlayer + ', please don\'t do that')
 }
 
 module.exports = {
