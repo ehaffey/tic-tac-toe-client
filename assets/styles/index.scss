@@ -10,6 +10,7 @@ body {
 
 .container {
   width: 500px;
+  background: $red;
   border: 2px solid $black;
   margin-top: 25px;
   margin-bottom: 100px;
@@ -48,6 +49,17 @@ body {
 .button {
   align-items: center;
   background-color: #8cffaa;
+  border: 1px solid $black;
+  color: $black;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  font-size: 20px;
+}
+
+#inferno-button {
+  align-items: center;
+  background-color: #ff5341;
   border: 1px solid $black;
   color: $black;
   display: flex;
@@ -100,6 +112,14 @@ body {
   display: none;
 }
 
-#board {
-  display: none;
+@keyframes spin {
+  to {
+    transform: skew(360deg);
+  }
+}
+
+@keyframes spin2 {
+  to {
+    transform: rotate(360deg);
+  }
 }

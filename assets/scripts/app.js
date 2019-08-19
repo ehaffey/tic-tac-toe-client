@@ -10,4 +10,5 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('.tile').on('click', gameLogic.buttonClick)
   $('#player-stat').on('click', authEvents.onPlayerStat)
+  $('#inferno-button').on('click', authEvents.onInferno)
 })

@@ -60,11 +60,25 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onInferno = function (event) {
+  event.preventDefault()
+  if (!store.infernoOff) {
+    store.infernoOff = true
+    $('.box').css({'animation': 'spin 3s infinite'})
+    $('.alt-box').css({'animation': 'spin2 4s infinite alternate'})
+  } else {
+    store.infernoOff = false
+    $('.box').css({'animation': 'initial'})
+    $('.alt-box').css({'animation': 'initial'})
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onNewGame,
   onPlayerStat,
-  onSignOut
+  onSignOut,
+  onInferno
 }
