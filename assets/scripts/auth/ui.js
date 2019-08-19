@@ -8,6 +8,7 @@ const signUpSuccess = function (data) {
   $('#auth').css('display', 'initial')
   $('#pre-auth').css('display', 'none')
   $('.text-field').val('')
+  setTimeout(function () { $('#message').text('Status: Signed in, games are being logged') }, 7500)
   //  $('#sign-up').reset()
   // console.log('signUpSuccess ran')
 }
@@ -26,6 +27,7 @@ const signInSuccess = function (data) {
   $('#auth').css('display', 'initial')
   $('#pre-auth').css('display', 'none')
   $('.text-field').val('')
+  setTimeout(function () { $('#message').text('Status: Signed in, games are being logged') }, 7500)
   //  $('#sign-up').reset()
   // console.log('signInSuccess ran')
 }
@@ -41,6 +43,7 @@ const changePasswordSuccess = function (data) {
   $('#message').text('Password updated')
   $('#message').attr('class', 'success')
   $('.text-field').val('')
+  setTimeout(function () { $('#message').text('Status: Signed in, games are being logged') }, 7500)
   // console.log('changePaswordSuccess ran')
 }
 
@@ -59,9 +62,9 @@ const newGameSuccess = function (data) {
   store.gameLength = 1
   store.over = false
   $('.tile').text('')
-  $('#message').text('New game started')
+//  $('.container').classList.add('animated', 'bounceOutLeft')
   $('#message').attr('class', 'success')
-  $('#game-info').text('Next move: X')
+  $('#game-info').text('New game started, Next move: X')
   // console.log('newGameSuccess ran')
 }
 
