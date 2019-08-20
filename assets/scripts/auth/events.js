@@ -66,10 +66,12 @@ const onInferno = function (event) {
     store.infernoOff = true
     $('.box').css({'animation': 'spin 3s infinite'})
     $('.alt-box').css({'animation': 'spin2 4s infinite alternate'})
+    $('.container').css({'animation': 'spin2 6s infinite'})
   } else {
     store.infernoOff = false
     $('.box').css({'animation': 'initial'})
     $('.alt-box').css({'animation': 'initial'})
+    $('.container').css({'animation': 'initial'})
   }
 }
 
